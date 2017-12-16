@@ -1,2 +1,15 @@
-<h1>Stocker</h1>
-<p></p>
+<%= form_tag root_path, :method => 'POST' do %>
+    <div class="form-group">
+      <%= text_field_tag 'id', nil, placeholder: 'Enter Company Ticker Symbol', size: 50 %>
+      <%= submit_tag 'Search Stock'%>
+    </div>
+    <br/><br/>
+
+<% if @stock %>
+    <%= @stock.name %>
+<% elsif @nothing %>
+    <%= @nothing %>
+<% elsif @error %>
+    <%= @error %>
+<% end %>
+<% end %>
